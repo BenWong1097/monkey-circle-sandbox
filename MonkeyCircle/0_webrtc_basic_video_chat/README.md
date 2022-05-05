@@ -37,6 +37,12 @@ Now it's time to set up Peer B! Much of what will be going on is just a mirror o
 ## Brain Cells to Spare?
 Stuff that's not essential to know right off the bat, but is nice to know.
 - To make this work, a STUN or TURN server needs to be a part of this equation. What does STUN or TURN stand for? It's probably not worth mentioning because you're not going to remember 🤪. These servers allow the client to discover their public IP address and lets us figure out how to traverse their network address translation (NAT) so that we can communicate that with the external peer.
+- Is WebRTC... secure?
+  - Every WebRTC connection is authenticated and encrypted so there should be no worries about traffic being peeped at or spoofed by an attacker.
+  - The basis of WebRTC is to have each client figure out the quickest path between each other. The problem with that is that WebRTC leaks can happen, so each peer's public IP address is not 100% hidden EVEN through a VPN in some cases<sup>[1](https://www.techradar.com/vpn/webrtc-leaks)</sup>. It's probably how people on Omegle can semi-dox each other. As such, users may, understandably, deactivate WebRTC functionality in their browser.
+    - Should you add support for a WebRTC alternative? I can't see how you could since the alternative would just increase latency between peers. For things like video chat, that would just degrade the experience of your service.
+    - Is leaking your public IP address to a (worst case) total stranger that bad? I guess they'd be able to guess your general location and ISP. Maybe DDOS you? If you *were* that important/paranoid, you'd probably already be using a VPN 🤷‍♂️
+    - Ultimately, if you were to integrate WebRTC in your service, it's probably a good idea to abstain from using it in ways where peers have an incentive to DDOS one another (e.g. competitive nature).
 
 ## Resources
 This demo was taken from the [WebRTC Primer](https://webrtc.org/getting-started/firebase-rtc-codelab).
