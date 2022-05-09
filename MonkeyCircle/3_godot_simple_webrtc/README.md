@@ -10,14 +10,14 @@ This comes in 5 parts:
 
 # Quickstart
 - Make sure to install [docker](https://www.docker.com/). 
-- `webrtc_signaling` and `webrtc_signaling_server` have already been exported into their respective folders, so all that needs to be done is to start up docker. If you want to see the code, just unzip them and open them up in Godot Engine.
+- `webrtc_signaling` and `webrtc_signaling_server` have already been exported into their respective folders, so all that needs to be done is to start up docker. If you want to see the code, just open them up in Godot Engine.
     - `cd` into this README's directory
     - Run `docker-compose up -d --build`
 - Once you've got everything working, head to `localhost` and try connecting multiple peers together.
 
 # Troubleshooting
 I ran into a lot of problems getting this to work, so this section is detected to calling them out.
-- To get WebRTC to work with Godot, I had to download a plugin. This plugin should already be included, but you may see `.dll` loading errors while launching the client Godot project in the Godot Engine. I used [Dependencies](https://github.com/lucasg/Dependencies) to find out any missing dll dependencies and downloaded them.
+- To get WebRTC to work with Godot, I had to download a plugin. This plugin can be downloaded [here](https://github.com/godotengine/webrtc-native/releases). Extract into the client Godot project's base folder (`webrtc_signaling`). You may see `.dll` loading errors while launching the client Godot project in the Godot Engine. I used [Dependencies](https://github.com/lucasg/Dependencies) to find out any missing dll dependencies and downloaded them.
 - If you're getting an X11 error on your server docker container, it could be because you're not exporting the Godot server project correctly. Make sure that the project's export settings has the [dedicated server template](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_dedicated_servers.html) hooked up.
 
 # References
