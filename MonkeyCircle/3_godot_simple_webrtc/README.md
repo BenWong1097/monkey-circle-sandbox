@@ -10,7 +10,7 @@ This comes in 5 parts:
 
 # Quickstart
 - Make sure to install [docker](https://www.docker.com/). 
-- `webrtc_signaling` and `webrtc_signaling_server` have already been exported into their respective folders, so all that needs to be done is to start up docker.
+- `webrtc_signaling` and `webrtc_signaling_server` have already been exported into their respective folders, so all that needs to be done is to start up docker. If you want to see the code, just unzip them and open them up in Godot Engine.
     - `cd` into this README's directory
     - Run `docker-compose up -d --build`
 - Once you've got everything working, head to `localhost` and try connecting multiple peers together.
