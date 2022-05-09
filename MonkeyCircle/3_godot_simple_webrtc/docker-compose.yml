@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  godot_client:
+    build: ./webrtc_signaling_demo
+  godot_server:
+    build: ./webrtc_signaling_demo_server
+    ports:
+      - "9080:9080"
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - server
